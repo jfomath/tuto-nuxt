@@ -15,6 +15,8 @@
   </template>
   
   <script setup>
+  import { useRouter } from 'vue-router';
+  const router = useRouter();
   
   const { $swal } = useNuxtApp();
   
@@ -36,13 +38,32 @@
     },
   ];
   
-  const showAlert = (title) => {
+  const showAlert = (id) => {
     $swal.fire({
-      title: `Bouton cliqué !`,
-      text: `Vous avez cliqué sur : ${title}`,
-      icon: "success",
-      confirmButtonText: "OK",
-    });
+      title: "Détails de la carte",
+    text: "Voulez-vous voir plus de détails ?",
+    icon: "info",
+    showCancelButton: true,
+    confirmButtonText: "Voir plus",
+    cancelButtonText: "Annuler",
+      customClass: {
+    confirmButton: "btn-ok"
+  }
+    }).then((result) => {
+    if (result.isConfirmed) {
+      router.push(`/details/${id}`); // Redirection Nuxt 3
+    }
+  });
   };
   </script>
+
+  <style>
+  .btn-ok {
+  background-color: #28a745 !important;
+  color: white !important;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+  </style>
   

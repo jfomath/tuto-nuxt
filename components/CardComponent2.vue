@@ -6,7 +6,7 @@
         <slot></slot>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="primary" @click="alerte">Clique ici</v-btn>
+        <v-btn color="primary" elevation="4" variant="tonal" @click="alerte">Clique ici</v-btn>
       </v-card-actions>
     </v-card>
   </template>
