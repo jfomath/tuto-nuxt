@@ -15,7 +15,6 @@
 </template>
 
 <style scoped>
-
 /* Assure que la page prend toute la hauteur de l'écran */
 .layout {
   display: flex;
